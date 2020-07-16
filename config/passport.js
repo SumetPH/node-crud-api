@@ -14,7 +14,10 @@ module.exports = (passport) => {
       User.findOne({ _id: payload._id }, (err, result) => {
         if (err) return done(err, false);
         if (!result) return done(null, false);
-        done(null, result);
+        done(null, {
+          _id: result._id,
+          username: result.username,
+        });
       });
     })
   );

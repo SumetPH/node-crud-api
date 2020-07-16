@@ -1,4 +1,5 @@
 // GET index
-module.exports.index = (_req, res) => {
+module.exports.index = (req, res) => {
+  console.log(req.user);
   res.json("Hello World.");
 };
