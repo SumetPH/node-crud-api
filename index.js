@@ -13,7 +13,7 @@ require("./config/mongoose")(mongoose);
 const passport = require("passport");
 require("./config/passport")(passport);
 
-// auth route
+// route
 const route = require("./route");
 app.use(route);
 
