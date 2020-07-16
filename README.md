@@ -10,7 +10,7 @@
 * Auth
   * Register
   * Login
-* Api
+* Api (Protect by JWT)
   * Index
   
 # Technology
