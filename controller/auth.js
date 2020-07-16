@@ -1,10 +1,9 @@
-const route = require("express").Router();
 const jwt = require("jsonwebtoken");
-const User = require("../model/User");
 const key = require("../config/key");
+const User = require("../model/User");
 
-// register to db
-route.post("/register", (req, res) => {
+// POST register
+module.exports.register = (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username: username }, (err, result) => {
     if (err) {
@@ -21,10 +20,10 @@ route.post("/register", (req, res) => {
     newUser.save();
     res.json("Registered");
   });
-});
+};
 
-// login return token.
-route.post("/login", (req, res) => {
+// POST login
+module.exports.login = (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username: username, password: password }, (err, result) => {
     if (err) {
@@ -39,6 +38,4 @@ route.post("/login", (req, res) => {
     );
     res.json(`Bearer ${token}`);
   });
-});
-
-module.exports = route;
+};
