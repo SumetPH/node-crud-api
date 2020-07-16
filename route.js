@@ -7,6 +7,6 @@ route.post("/auth/register", auth.register);
 route.post("/auth/login", auth.login);
 
 const api = require("./controller/api");
-route.get("/api", checkAuth, api.get);
+route.get("/api", checkAuth, api.index);
 
 module.exports = route;
